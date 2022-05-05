@@ -9,7 +9,7 @@ node {
      def myTestContainer = docker.image('node:4.6')
 //     myTestContainer.inside('-u root:jenkins') 
      myTestContainer.pull()
-     myTestContainer.inside {
+     myTestContainer.inside("-u root:jenkins") {
        sh 'npm install --only=dev'
        sh 'npm test'
      }
